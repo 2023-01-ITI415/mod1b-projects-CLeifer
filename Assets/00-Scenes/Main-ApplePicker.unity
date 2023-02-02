@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e432a88bf35fea345a929a0cd5ad19f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applePrefab: {fileID: 0}
+  applePrefab: {fileID: 8061677598379067895, guid: aa5a2e35ffa7d4e40aac6212ee3baa34, type: 3}
   speed: 10
   leftAndRightEdge: 20
   chanceToChangeDirection: 0.02
@@ -330,9 +330,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5012457220787012681, guid: 9d500618cd50d1f4384985a8373abdb2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012457220901896982, guid: 9d500618cd50d1f4384985a8373abdb2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5012457221002376588, guid: 9d500618cd50d1f4384985a8373abdb2, type: 3}
       propertyPath: m_Name
       value: AppleTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012457221002376588, guid: 9d500618cd50d1f4384985a8373abdb2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012457221002376690, guid: 9d500618cd50d1f4384985a8373abdb2, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5012457221002376691, guid: 9d500618cd50d1f4384985a8373abdb2, type: 3}
       propertyPath: m_RootOrder
