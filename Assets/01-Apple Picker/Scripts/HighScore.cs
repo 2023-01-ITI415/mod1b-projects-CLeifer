@@ -31,6 +31,7 @@ public class HighScore : MonoBehaviour
             {
                 _UI_TEXT.text = "High Score: " + value.ToString("#,0");
             }
+
         }
     }
 
