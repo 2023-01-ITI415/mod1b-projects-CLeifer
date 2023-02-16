@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hoop : MonoBehaviour {
+
+    public ScoreCounter scoreCounter;
+
     [Header("Set in Inspector")]
 
     public float speed = 1f;
@@ -14,10 +17,11 @@ public class Hoop : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-
+        GameObject scoreGO = GameObject.Find("ScoreCounter");
+        scoreCounter = scoreGO.GetComponent<ScoreCounter>();
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -33,7 +37,16 @@ public class Hoop : MonoBehaviour {
         {
             speed = -Mathf.Abs(speed);
         }
-   
+    }
+
+     void OnCollisionEnter(Collision coll)
+    {
+        GameObject collidedWith = coll.gameObject;
+        if (collidedWith.CompareTag("Projectile"))
+        {
+            Destroy(collidedWith);
+            scoreCounter.score += 1;
+        }
     }
     void FixedUpdate()
     {

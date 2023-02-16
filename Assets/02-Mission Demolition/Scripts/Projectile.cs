@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
+    public static float bottomY = -20f;
+
     const int LOOKBACK_COUNT = 10;
     static List<Projectile> PROJECTILES = new List<Projectile>();
 
@@ -28,6 +30,13 @@ public class Projectile : MonoBehaviour
         deltas.Add(1000);
 
         PROJECTILES.Add(this);
+    }
+    void Update()
+    {
+        if (transform.position.y < bottomY)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void FixedUpdate()
