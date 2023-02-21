@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
+    public ScoreCounter scoreCounter;
     public static float bottomY = -20f;
 
     const int LOOKBACK_COUNT = 10;
@@ -24,6 +25,9 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
+        GameObject scoreGO = GameObject.Find("ScoreCounter");
+        scoreCounter = scoreGO.GetComponent<ScoreCounter>();
+
         rigid = GetComponent<Rigidbody>();
         awake = true;
         prevPos = new Vector3(1000, 1000, 0);
@@ -74,6 +78,15 @@ public class Projectile : MonoBehaviour
         foreach (Projectile p in PROJECTILES)
         {
             Destroy(p.gameObject);
+        }
+    }
+    void OnCollisionEnter(Collision coll)
+    {
+        GameObject collidedWith = coll.gameObject;
+        if (collidedWith.CompareTag("PickUp"))
+        {
+            Destroy(collidedWith);
+            scoreCounter.score += 3;
         }
     }
 }
